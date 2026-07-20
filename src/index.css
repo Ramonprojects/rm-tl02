@@ -12,6 +12,25 @@
 @theme {
   --font-sans: 'IBM Plex Sans', system-ui, sans-serif;
   --font-display: 'Anton', 'IBM Plex Sans', sans-serif;
+
+  /* Override das cores OKLCH da Tailwind v4 pra hex — evita quebra em Android antigo */
+  --color-black: #000000;
+  --color-white: #ffffff;
+  --color-lime-300: #bef264;
+  --color-lime-400: #a3e635;
+  --color-lime-500: #84cc16;
+  --color-green-600: #16a34a;
+  --color-green-700: #15803d;
+  --color-sky-300: #7dd3fc;
+  --color-sky-400: #38bdf8;
+  --color-sky-500: #0ea5e9;
+  --color-sky-700: #0369a1;
+  --color-slate-200: #e2e8f0;
+  --color-slate-300: #cbd5e1;
+  --color-slate-400: #94a3b8;
+  --color-slate-500: #64748b;
+  --color-red-400: #f87171;
+  --color-red-500: #ef4444;
 }
 
 /* Botão "respirando" — escala + glow azul-Telegram pulsando */
