@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=IBM+Plex+Sans:wght@400;500;600;700;800&family=Inter:wght@800;900&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'IBM Plex Sans', system-ui, sans-serif;
+  --font-display: 'Anton', 'IBM Plex Sans', sans-serif;
+}
+
+/* Botão "respirando" — escala + glow azul-Telegram pulsando */
+@keyframes breathe-cta {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow:
+      0 0 25px 0 rgba(42, 171, 238, 0.55),
+      0 0 55px 0 rgba(42, 171, 238, 0.25);
+  }
+  50% {
+    transform: scale(1.025);
+    box-shadow:
+      0 0 45px 0 rgba(42, 171, 238, 0.85),
+      0 0 90px 0 rgba(42, 171, 238, 0.45);
+  }
+}
+
+/* Faixa verde brilhante deslizando por cima */
+@keyframes shine-sweep {
+  0%   { transform: translateX(0) skewX(12deg); }
+  60%  { transform: translateX(500%) skewX(12deg); }
+  100% { transform: translateX(500%) skewX(12deg); }
+}
+
+/* Linha LED inferior — intensifica no meio do ciclo */
+@keyframes led-bar {
+  0%, 100% { opacity: 0.4; transform: translateX(-50%) scaleX(0.6); }
+  50%      { opacity: 1;   transform: translateX(-50%) scaleX(1);   }
+}
+
+/* LED verde piscando pra dar sensação de "ao vivo" */
+@keyframes led-blink {
+  0%, 100% { opacity: 1;   transform: scale(1); }
+  50%      { opacity: 0.35; transform: scale(0.8); }
+}
+
+/* Gradiente do texto deslizando (metálico verde) */
+@keyframes text-shine {
+  0%   { background-position: 200% 50%; }
+  100% { background-position: -200% 50%; }
+}
+
+/* Setinha do botão balançando */
+@keyframes arrow-nudge {
+  0%, 100% { transform: translateX(0); }
+  50%      { transform: translateX(5px); }
+}
+
+html, body, #root {
+  margin: 0;
+  min-height: 100vh;
+  background: #050510;
+  color: white;
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
