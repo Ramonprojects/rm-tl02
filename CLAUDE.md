@@ -32,6 +32,13 @@ Landing page para tipster/apostas esportivas, parte do conjunto **LP JC PRIME**.
 | Comunidade | `lp-comunidade` | igual esta, subtítulo diferente |
 | Comunidade Verde | `lp-comunidade-verde` | estádio + botão verde, sem aviãozinho, selo Esportiva |
 
+## ⚠️ Bug Tailwind v4 + Android antigo (resolvido — MUITO IMPORTANTE)
+Tailwind v4 gera cores em `oklch()` (Chrome 111+). Em Android antigo (Chrome <111, Samsung Internet antigo), OKLCH não é suportado → todas as cores lime/sky/green/etc caem pra `unset` e a LP quebra visualmente (botão sem cor, gradiente vaza, texto branco em fundo verde).
+
+**Fix**: no `src/index.css`, dentro do bloco `@theme`, sobrescrevemos `--color-*` das cores usadas com hex tradicional. Se adicionar cor Tailwind nova (ex: `text-orange-500`), tem que adicionar `--color-orange-500: #f97316` no `@theme`.
+
+Também tem fix de `-webkit-background-clip: text` no fim do `index.css` (Tailwind v4 não adiciona prefixo webkit automaticamente).
+
 ## Como trocar o link do CTA
 1. GitHub: abre `src/blocks/CtaButton.jsx`, edita a linha `href`, commit
 2. Vercel redeploya sozinha em ~30s
