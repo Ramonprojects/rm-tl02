@@ -5,7 +5,7 @@ import Disclaimer from './blocks/Disclaimer'
 
 export default function App() {
   return (
-    <main className="relative w-full bg-[#050510] flex flex-col overflow-hidden h-[100dvh]">
+    <main className="relative w-full bg-[#050510] flex flex-col min-h-screen min-h-[100dvh]">
       {/* Fundo do estádio desfocado (posição absoluta cobrindo tudo) */}
       <Hero />
 

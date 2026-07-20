@@ -22,11 +22,17 @@ export default function CtaButton() {
       >
         {/* Faixa branca brilhante deslizando por cima (shine sweep) */}
         <span className="pointer-events-none absolute inset-0 overflow-hidden">
-          <span className="absolute top-0 -left-1/3 h-full w-1/3 bg-gradient-to-r from-transparent via-white/70 to-transparent skew-x-12 animate-[shine-sweep_3s_ease-in-out_infinite]" />
+          <span
+            className="absolute top-0 -left-1/3 h-full w-1/3 skew-x-12 animate-[shine-sweep_3s_ease-in-out_infinite]"
+            style={{ backgroundImage: 'linear-gradient(to right, transparent, rgba(255,255,255,0.7), transparent)' }}
+          />
         </span>
 
         {/* Highlight glossy no topo */}
-        <span className="pointer-events-none absolute inset-x-0 top-0 h-1/2 bg-gradient-to-b from-white/40 to-transparent" />
+        <span
+          className="pointer-events-none absolute inset-x-0 top-0 h-1/2"
+          style={{ backgroundImage: 'linear-gradient(to bottom, rgba(255,255,255,0.4), transparent)' }}
+        />
 
         {/* Conteúdo */}
         <span className="relative z-10 flex items-center justify-center gap-3 h-full px-6">
