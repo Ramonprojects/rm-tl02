@@ -9,6 +9,17 @@
   -webkit-text-fill-color: transparent;
 }
 
+/* Tailwind v4 injeta "in oklab" na direção dos gradientes, o que quebra
+   em Chrome Android <111. Removemos pra usar interpolação sRGB tradicional. */
+.bg-gradient-to-t { --tw-gradient-position: to top; }
+.bg-gradient-to-tr { --tw-gradient-position: to top right; }
+.bg-gradient-to-r { --tw-gradient-position: to right; }
+.bg-gradient-to-br { --tw-gradient-position: to bottom right; }
+.bg-gradient-to-b { --tw-gradient-position: to bottom; }
+.bg-gradient-to-bl { --tw-gradient-position: to bottom left; }
+.bg-gradient-to-l { --tw-gradient-position: to left; }
+.bg-gradient-to-tl { --tw-gradient-position: to top left; }
+
 @theme {
   --font-sans: 'IBM Plex Sans', system-ui, sans-serif;
   --font-display: 'Anton', 'IBM Plex Sans', sans-serif;
