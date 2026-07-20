@@ -5,12 +5,12 @@ import Disclaimer from './blocks/Disclaimer'
 
 export default function App() {
   return (
-    <main className="relative min-h-screen w-full bg-[#050510] flex flex-col overflow-hidden">
+    <main className="relative w-full bg-[#050510] flex flex-col overflow-hidden h-[100dvh]">
       {/* Fundo do estádio desfocado (posição absoluta cobrindo tudo) */}
       <Hero />
 
       {/* Conteúdo centralizado sobre o fundo */}
-      <div className="relative flex-1 flex flex-col items-center justify-center gap-10 lg:gap-14 py-16 lg:py-24">
+      <div className="relative flex-1 flex flex-col items-center justify-center gap-6 lg:gap-14 py-6 lg:py-24 min-h-0">
         <Headline />
         <CtaButton />
       </div>
