@@ -15,10 +15,10 @@ export default function Headline() {
   return (
     <div className="text-center px-6">
       <h1 className="font-display leading-[0.9] tracking-tight">
-        <span className="block text-7xl lg:text-9xl bg-gradient-to-b from-sky-300 via-sky-400 to-sky-700 bg-clip-text text-transparent bg-[length:200%_100%] animate-[text-shine_5s_linear_infinite] [filter:drop-shadow(0_6px_16px_rgba(0,0,0,0.85))_drop-shadow(0_0_28px_rgba(42,171,238,0.4))]">
+        <span className="block text-6xl min-[400px]:text-7xl lg:text-9xl bg-gradient-to-b from-sky-300 via-sky-400 to-sky-700 bg-clip-text text-transparent bg-[length:200%_100%] animate-[text-shine_5s_linear_infinite] [filter:drop-shadow(0_6px_16px_rgba(0,0,0,0.85))_drop-shadow(0_0_28px_rgba(42,171,238,0.4))]">
           {CONTENT.titleLine1}
         </span>
-        <span className="block text-7xl lg:text-9xl bg-gradient-to-b from-white via-slate-200 to-slate-500 bg-clip-text text-transparent [filter:drop-shadow(0_6px_16px_rgba(0,0,0,0.85))_drop-shadow(0_2px_8px_rgba(0,0,0,0.6))]">
+        <span className="block text-6xl min-[400px]:text-7xl lg:text-9xl bg-gradient-to-b from-white via-slate-200 to-slate-500 bg-clip-text text-transparent [filter:drop-shadow(0_6px_16px_rgba(0,0,0,0.85))_drop-shadow(0_2px_8px_rgba(0,0,0,0.6))]">
           {CONTENT.titleLine2}
         </span>
       </h1>

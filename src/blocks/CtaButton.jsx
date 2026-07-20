@@ -8,13 +8,15 @@ const CONTENT = {
 
 export default function CtaButton() {
   const handleClick = () => {
-    window.open(CONTENT.href, '_blank')
+    window.open(CONTENT.href, '_blank', 'noopener,noreferrer')
   }
 
   return (
     <section className="px-6 w-full max-w-md">
       <button
+        type="button"
         onClick={handleClick}
+        aria-label={`${CONTENT.label} — abre link em nova aba`}
         className="group relative w-full h-16 rounded-full overflow-hidden cursor-pointer active:scale-95 transition-transform animate-[breathe-cta_2.4s_ease-in-out_infinite]"
         style={{ backgroundColor: '#2AABEE' }}
       >
