@@ -3,7 +3,7 @@
 // ============================================================================
 const CONTENT = {
   label: 'Quero meu acesso',
-  href: 'https://track.grupojc.cc/track/b215d5e4-a406-450d-bc5f-f9687470105e/redirect?utm_campaign=esportiva&utm_content=hn01-21%2F07', // TROQUE pelo link do grupo (WhatsApp/Telegram)
+  href: 'https://track.grupojc.cc/track/b215d5e4-a406-450d-bc5f-f9687470105e/redirect?utm_campaign=esportiva&utm_content=gb-21%2F07', // TROQUE pelo link do grupo (WhatsApp/Telegram)
 }
 
 export default function CtaButton() {
