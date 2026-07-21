@@ -32,12 +32,18 @@ Landing page para tipster/apostas esportivas, parte do conjunto **LP JC PRIME**.
 | Comunidade | `lp-comunidade` | igual esta, subtítulo diferente |
 | Comunidade Verde | `lp-comunidade-verde` | estádio + botão verde, sem aviãozinho, selo Esportiva |
 
-## ⚠️ Bug Tailwind v4 + Android antigo (resolvido — MUITO IMPORTANTE)
-Tailwind v4 gera cores em `oklch()` (Chrome 111+). Em Android antigo (Chrome <111, Samsung Internet antigo), OKLCH não é suportado → todas as cores lime/sky/green/etc caem pra `unset` e a LP quebra visualmente (botão sem cor, gradiente vaza, texto branco em fundo verde).
+## ⚠️ Bugs CRÍTICOS de compat mobile (todos resolvidos — MUITO IMPORTANTE)
 
-**Fix**: no `src/index.css`, dentro do bloco `@theme`, sobrescrevemos `--color-*` das cores usadas com hex tradicional. Se adicionar cor Tailwind nova (ex: `text-orange-500`), tem que adicionar `--color-orange-500: #f97316` no `@theme`.
+Ver seção completa no CLAUDE.md da `lp-acesso-imediato` — mesmos 6 fixes obrigatórios pra qualquer LP nova:
 
-Também tem fix de `-webkit-background-clip: text` no fim do `index.css` (Tailwind v4 não adiciona prefixo webkit automaticamente).
+1. **Cores OKLCH → hex** (`@theme` override com `--color-*`)
+2. **`-webkit-background-clip: text`** manual pro gradient text
+3. **`--tw-gradient-position` sem `in oklab`** (sobrescreve todas as direções `bg-gradient-to-*`)
+4. **Não usar `bg-color/opacity`** (Tailwind gera `color-mix(oklab)` que quebra) — usar `rgba()` inline
+5. **`vite.config.js` com `build.target: es2019`** (evita JS moderno demais)
+6. **Mobile URL bar** — `@media (hover: none) and (pointer: coarse) { footer { margin-bottom: 80px } }`
+
+Ver `src/index.css` desta LP pra ver todos os fixes aplicados.
 
 ## Como trocar o link do CTA
 1. GitHub: abre `src/blocks/CtaButton.jsx`, edita a linha `href`, commit
