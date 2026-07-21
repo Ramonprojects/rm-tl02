@@ -111,8 +111,9 @@ html, body, #root {
   }
 }
 
-/* iOS Safari — a URL bar do Safari é flotante e cobre o rodapé. Empurra o footer pra cima. */
-@supports (-webkit-touch-callout: none) {
+/* Mobile (iOS Safari + Android Chrome) — URL bar dos navegadores móveis
+   cobre/reduz o viewport. Empurra o footer pra cima pra sempre ser visível. */
+@media (hover: none) and (pointer: coarse) {
   footer {
     margin-bottom: 80px;
   }
