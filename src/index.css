@@ -110,3 +110,10 @@ html, body, #root {
     scroll-behavior: auto !important;
   }
 }
+
+/* iOS Safari — a URL bar do Safari é flotante e cobre o rodapé. Reserva espaço. */
+@supports (-webkit-touch-callout: none) {
+  footer {
+    padding-bottom: 80px;
+  }
+}
