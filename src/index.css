@@ -111,9 +111,9 @@ html, body, #root {
   }
 }
 
-/* iOS Safari — a URL bar do Safari é flotante e cobre o rodapé. Reserva espaço. */
+/* iOS Safari — a URL bar do Safari é flotante e cobre o rodapé. Empurra o footer pra cima. */
 @supports (-webkit-touch-callout: none) {
   footer {
-    padding-bottom: 80px;
+    margin-bottom: 80px;
   }
 }
