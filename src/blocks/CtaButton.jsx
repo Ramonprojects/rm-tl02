@@ -13,11 +13,13 @@ export default function CtaButton() {
 
   return (
     <section className="px-6 w-full max-w-md">
-      <button
-        type="button"
-        onClick={handleClick}
+      <a
+        href={CONTENT.href}
+        data-href={CONTENT.href}
+        target="_blank"
+        rel="noopener noreferrer"
         aria-label={`${CONTENT.label} — abre link em nova aba`}
-        className="group relative w-full h-16 rounded-full overflow-hidden cursor-pointer active:scale-95 transition-transform animate-[breathe-cta_2.4s_ease-in-out_infinite]"
+        className="group relative block w-full h-16 rounded-full overflow-hidden cursor-pointer active:scale-95 transition-transform animate-[breathe-cta_2.4s_ease-in-out_infinite]"
         style={{ backgroundColor: '#2AABEE' }}
       >
         {/* Faixa branca brilhante deslizando por cima (shine sweep) */}
@@ -74,7 +76,7 @@ export default function CtaButton() {
             <path d="M5 12h14M13 5l7 7-7 7" />
           </svg>
         </span>
-      </button>
+      </a>
     </section>
   )
 }
