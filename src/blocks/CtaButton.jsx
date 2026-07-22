@@ -5,7 +5,6 @@ const CONTENT = {
   label: 'Quero meu acesso',
   href: 'https://track.grupojc.cc/track/b215d5e4-a406-450d-bc5f-f9687470105e/redirect?utm_term=esportiva', // TROQUE pelo link do grupo (WhatsApp/Telegram)
 }
-
 export default function CtaButton() {
   const handleClick = () => {
     if (typeof window.dispararLead === 'function') window.dispararLead()
