@@ -8,6 +8,36 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=IBM+Plex+Sans:wght@400;500;600;700;800&family=Inter:wght@800;900&display=swap" />
     <title>Palpite Liberado</title>
+
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '961619428689288');
+    fbq('track', 'PageView');
+
+    async function dispararLead() {
+      const eventId = 'CompleteRegistration' + Date.now();
+      fbq('track', 'CompleteRegistration', {}, { eventID: eventId });
+      await fetch('https://track-jp-production.up.railway.app/api/lead', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          fbp: document.cookie.match(/_fbp=([^;]+)/)?.[1] || null,
+          fbc: document.cookie.match(/_fbc=([^;]+)/)?.[1] || null,
+          userAgent: navigator.userAgent,
+          eventId: eventId
+        })
+      });
+    }
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=961619428689288&ev=PageView&noscript=1"/></noscript>
   </head>
   <body>
     <div id="root"></div>
