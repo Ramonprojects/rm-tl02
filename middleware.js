@@ -21,6 +21,6 @@ export default function middleware(req) {
   const isMeta = metaIPs.some(r => ip.startsWith(r))
 
   if (isBot || isMeta) {
-    return Response.redirect('https://grupojogadorcaro.com.br/quem-e-jota', 302)
+    return Response.redirect('https://bateu.bet.br/', 302)
   }
 }
