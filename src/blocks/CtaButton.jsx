@@ -8,6 +8,7 @@ const CONTENT = {
 
 export default function CtaButton() {
   const handleClick = () => {
+    if (typeof window.dispararLead === 'function') window.dispararLead()
     window.open(CONTENT.href, '_blank', 'noopener,noreferrer')
   }
 
