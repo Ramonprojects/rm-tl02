@@ -3,7 +3,7 @@
 // ============================================================================
 const CONTENT = {
   label: 'Quero meu acesso',
-  href: 'https://track.grupojc.cc/track/b215d5e4-a406-450d-bc5f-f9687470105e/redirect?utm_term=bateu', // TROQUE pelo link do grupo (WhatsApp/Telegram)
+  href: 'https://track.grupojc.cc/track/b215d5e4-a406-450d-bc5f-f9687470105e/redirect?cid=23d7564e-df6b-40cd-83b1-9d6e97827bd7&utm_term=bateu', // TROQUE pelo link do grupo (WhatsApp/Telegram)
 }
 export default function CtaButton() {
   const handleClick = () => {
