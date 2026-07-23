@@ -9,10 +9,14 @@ export default function CtaButton() {
   const handleClick = (e) => {
     try {
       const params = new URLSearchParams(window.location.search);
-      const utmKeys = ['utm_source','utm_medium','utm_campaign','utm_content','utm_term','campaign','fbclid','gclid'];
-      const utmStr = utmKeys.map(k => params.get(k) ? `${k}=${encodeURIComponent(params.get(k))}` : null).filter(Boolean).join('&');
-      if (utmStr && e && e.currentTarget && !e.currentTarget.href.includes('utm_')) {
-        e.currentTarget.href += (e.currentTarget.href.includes('?') ? '&' : '?') + utmStr;
+      const utmKeys = ['utm_source','utm_medium','utm_campaign','utm_content','utm_term','campaign','fbclid','gclid','cid'];
+      if (e && e.currentTarget && e.currentTarget.href) {
+        const url = new URL(e.currentTarget.href);
+        utmKeys.forEach(k => {
+          const v = params.get(k);
+          if (v) url.searchParams.set(k, v);
+        });
+        e.currentTarget.href = url.toString();
       }
     } catch { /* ignore */ }
     if (typeof window.dispararLead === 'function') window.dispararLead()
