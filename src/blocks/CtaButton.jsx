@@ -9,7 +9,7 @@ export default function CtaButton() {
   const handleClick = (e) => {
     try {
       const params = new URLSearchParams(window.location.search);
-      const utmKeys = ['utm_source','utm_medium','utm_campaign','utm_content','utm_term','campaign','fbclid','gclid','cid'];
+      const utmKeys = ['utm_source','utm_medium','utm_campaign','utm_content','utm_term','campaign','fbclid','gclid','cid','account_id'];
       if (e && e.currentTarget && e.currentTarget.href) {
         const url = new URL(e.currentTarget.href);
         utmKeys.forEach(k => {
