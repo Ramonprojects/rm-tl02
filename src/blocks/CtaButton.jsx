@@ -58,7 +58,7 @@ export default function CtaButton() {
           </span>
 
           <span
-            className="text-black text-lg lg:text-xl tracking-wider uppercase"
+            className="text-black text-base lg:text-xl tracking-wider uppercase whitespace-nowrap"
             style={{ fontFamily: 'Inter, system-ui, sans-serif', fontWeight: 900 }}
           >
             {CONTENT.label}
