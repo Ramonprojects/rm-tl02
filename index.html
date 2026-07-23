@@ -25,17 +25,26 @@
 
     async function dispararLead() {
       const eventId = 'CompleteRegistration' + Date.now();
-      fbq('track', 'CompleteRegistration', {}, { eventID: eventId });
-      await fetch('https://track-jp-production.up.railway.app/api/lead', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          fbp: document.cookie.match(/_fbp=([^;]+)/)?.[1] || null,
-          fbc: document.cookie.match(/_fbc=([^;]+)/)?.[1] || null,
-          userAgent: navigator.userAgent,
-          eventId: eventId
-        })
+      const params = new URLSearchParams(window.location.search);
+      const utms = {};
+      ['utm_source','utm_medium','utm_campaign','utm_content','utm_term','campaign','fbclid','gclid'].forEach(k => {
+        const v = params.get(k);
+        if (v) utms[k] = v;
       });
+      try { fbq('track', 'CompleteRegistration', utms, { eventID: eventId }); } catch { /* ignore */ }
+      try {
+        await fetch('https://track-jp-production.up.railway.app/api/lead', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            fbp: document.cookie.match(/_fbp=([^;]+)/)?.[1] || null,
+            fbc: document.cookie.match(/_fbc=([^;]+)/)?.[1] || null,
+            userAgent: navigator.userAgent,
+            eventId: eventId,
+            ...utms
+          })
+        });
+      } catch { /* ignore */ }
     }
     </script>
     <noscript><img height="1" width="1" style="display:none"
