@@ -27,7 +27,7 @@
       const eventId = 'CompleteRegistration' + Date.now();
       const params = new URLSearchParams(window.location.search);
       const utms = {};
-      ['utm_source','utm_medium','utm_campaign','utm_content','utm_term','campaign','fbclid','gclid'].forEach(k => {
+      ['utm_source','utm_medium','utm_campaign','utm_content','utm_term','campaign','fbclid','gclid','account_id'].forEach(k => {
         const v = params.get(k);
         if (v) utms[k] = v;
       });
