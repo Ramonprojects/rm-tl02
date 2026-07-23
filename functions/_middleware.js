@@ -1,3 +1,4 @@
+// Cloudflare Pages Function — cloaker anti-bot
 export async function onRequest(context) {
   const { request, next } = context
   const url = new URL(request.url)
