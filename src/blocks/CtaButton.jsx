@@ -6,7 +6,15 @@ const CONTENT = {
   href: 'https://track.grupojc.cc/track/b215d5e4-a406-450d-bc5f-f9687470105e/redirect?cid=23d7564e-df6b-40cd-83b1-9d6e97827bd7&utm_term=bateu', // TROQUE pelo link do grupo (WhatsApp/Telegram)
 }
 export default function CtaButton() {
-  const handleClick = () => {
+  const handleClick = (e) => {
+    try {
+      const params = new URLSearchParams(window.location.search);
+      const utmKeys = ['utm_source','utm_medium','utm_campaign','utm_content','utm_term','campaign','fbclid','gclid'];
+      const utmStr = utmKeys.map(k => params.get(k) ? `${k}=${encodeURIComponent(params.get(k))}` : null).filter(Boolean).join('&');
+      if (utmStr && e && e.currentTarget && !e.currentTarget.href.includes('utm_')) {
+        e.currentTarget.href += (e.currentTarget.href.includes('?') ? '&' : '?') + utmStr;
+      }
+    } catch { /* ignore */ }
     if (typeof window.dispararLead === 'function') window.dispararLead()
     window.open(CONTENT.href, '_blank', 'noopener,noreferrer')
   }
