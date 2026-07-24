@@ -31,7 +31,7 @@ export default function CtaButton() {
         target="_blank"
         rel="noopener noreferrer"
         aria-label={`${CONTENT.label} — abre link em nova aba`}
-        className="group relative block w-full h-16 rounded-full overflow-hidden cursor-pointer active:scale-95 transition-transform animate-[breathe-cta_2.4s_ease-in-out_infinite]"
+        className="group relative block w-full h-14 min-[400px]:h-16 min-[430px]:h-20 rounded-full overflow-hidden cursor-pointer active:scale-95 transition-transform animate-[breathe-cta_2.4s_ease-in-out_infinite]"
         style={{ backgroundColor: '#2AABEE' }}
       >
         {/* Faixa branca brilhante deslizando por cima (shine sweep) */}
