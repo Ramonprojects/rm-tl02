@@ -7,20 +7,21 @@ const CONTENT = {
 }
 export default function CtaButton() {
   const handleClick = (e) => {
+    e.preventDefault()
     try {
       const params = new URLSearchParams(window.location.search);
       const utmKeys = ['utm_source','utm_medium','utm_campaign','utm_content','utm_term','campaign','fbclid','gclid','cid','account_id'];
-      if (e && e.currentTarget && e.currentTarget.href) {
-        const url = new URL(e.currentTarget.href);
-        utmKeys.forEach(k => {
-          const v = params.get(k);
-          if (v) url.searchParams.set(k, v);
-        });
-        e.currentTarget.href = url.toString();
-      }
-    } catch { /* ignore */ }
-    if (typeof window.dispararLead === 'function') window.dispararLead()
-    window.open(CONTENT.href, '_blank', 'noopener,noreferrer')
+      const url = new URL(CONTENT.href);
+      utmKeys.forEach(k => {
+        const v = params.get(k);
+        if (v) url.searchParams.set(k, v);
+      });
+      if (typeof window.dispararLead === 'function') window.dispararLead()
+      window.open(url.toString(), '_blank', 'noopener,noreferrer')
+    } catch {
+      if (typeof window.dispararLead === 'function') window.dispararLead()
+      window.open(CONTENT.href, '_blank', 'noopener,noreferrer')
+    }
   }
 
   return (
@@ -33,6 +34,7 @@ export default function CtaButton() {
         aria-label={`${CONTENT.label} — abre link em nova aba`}
         className="group relative block w-full h-14 min-[400px]:h-16 min-[430px]:h-20 rounded-full overflow-hidden cursor-pointer active:scale-95 transition-transform animate-[breathe-cta_2.4s_ease-in-out_infinite]"
         style={{ backgroundColor: '#2AABEE' }}
+        onClick={handleClick}
       >
         {/* Faixa branca brilhante deslizando por cima (shine sweep) */}
         <span className="pointer-events-none absolute inset-0 overflow-hidden">
