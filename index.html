@@ -36,6 +36,44 @@
     </script>
     <noscript><img height="1" width="1" style="display:none"
     src="https://www.facebook.com/tr?id=961619428689288&ev=PageView&noscript=1"/></noscript>
+  
+    <!-- TrackPanel Smartico · rastreio PageView + Cliques -->
+    <script>
+    (function(){
+      var WORKSPACE_ID = "b215d5e4-a406-450d-bc5f-f9687470105e";
+      var API = "https://smartico-dashboard-production.up.railway.app";
+      var B = API + "/track/" + WORKSPACE_ID;
+      var k = "_tid";
+      var sid = sessionStorage.getItem(k) || (Math.random().toString(36).slice(2) + Date.now().toString(36));
+      sessionStorage.setItem(k, sid);
+      var sp = new URLSearchParams(location.search);
+      var utms = ["utm_source","utm_medium","utm_campaign","utm_content","utm_term"];
+      var utmParams = {};
+      utms.forEach(function(u){ var v = sp.get(u); if(v) utmParams[u] = v; });
+      if(Object.keys(utmParams).length) sessionStorage.setItem("_utms", JSON.stringify(utmParams));
+      function getUtms(){ try { return JSON.parse(sessionStorage.getItem("_utms") || "{}"); } catch(e) { return {}; } }
+      function track(type, meta){
+        try {
+          fetch(B, {
+            method: "POST",
+            headers: {"Content-Type": "application/json"},
+            body: JSON.stringify({event_type: type, session_id: sid, url: location.href, metadata: Object.assign({}, getUtms(), meta || {})}),
+            keepalive: true
+          }).catch(function(){});
+        } catch(e) { /* ignore */ }
+      }
+      track("pageview");
+      document.addEventListener("click", function(e){
+        var el = e.target;
+        while(el && el !== document.body){
+          if(el.dataset && el.dataset.track){ track("click", {label: el.dataset.track, text: el.innerText || ""}); return; }
+          if(el.tagName === "BUTTON" || el.tagName === "A"){ track("click", {tag: el.tagName, text: el.innerText || "", href: el.href || ""}); return; }
+          el = el.parentElement;
+        }
+      }, true);
+    })();
+    </script>
+
   </head>
   <body>
     <div id="root"></div>
