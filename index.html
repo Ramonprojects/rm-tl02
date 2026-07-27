@@ -11,32 +11,6 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=IBM+Plex+Sans:wght@400;500;600;700;800&family=Inter:wght@800;900&display=swap" />
     <title>Palpite Liberado</title>
 
-    <script>
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '961619428689288');
-    fbq('track', 'PageView');
-
-    function dispararLead() {
-      const eventId = 'Lead' + Date.now();
-      const params = new URLSearchParams(window.location.search);
-      const utms = {};
-      ['utm_source','utm_medium','utm_campaign','utm_content','utm_term','campaign','fbclid','gclid','account_id'].forEach(k => {
-        const v = params.get(k);
-        if (v) utms[k] = v;
-      });
-      try { fbq('track', 'Lead', utms, { eventID: eventId }); } catch { /* ignore */ }
-    }
-    </script>
-    <noscript><img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=961619428689288&ev=PageView&noscript=1"/></noscript>
-  
     <!-- TrackPanel Smartico · rastreio PageView + Cliques -->
     <script>
     (function(){
@@ -74,7 +48,31 @@
     })();
     </script>
 
-  </head>
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '961619428689288');
+    fbq('track', 'PageView');
+
+    function dispararLead() {
+      const eventId = 'Lead' + Date.now();
+      const params = new URLSearchParams(window.location.search);
+      const utms = {};
+      ['utm_source','utm_medium','utm_campaign','utm_content','utm_term','campaign','fbclid','gclid','account_id'].forEach(k => {
+        const v = params.get(k);
+        if (v) utms[k] = v;
+      });
+      try { fbq('track', 'Lead', utms, { eventID: eventId }); } catch { /* ignore */ }
+    }
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=961619428689288&ev=PageView&noscript=1"/></noscript></head>
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
