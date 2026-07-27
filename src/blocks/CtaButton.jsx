@@ -54,6 +54,7 @@ export default function CtaButton() {
       <a
         href={CONTENT.href}
         data-href={CONTENT.href}
+        data-trackpanel
         target="_blank"
         rel="noopener noreferrer"
         aria-label={`${CONTENT.label} — abre link em nova aba`}
