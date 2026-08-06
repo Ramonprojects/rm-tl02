@@ -11,23 +11,21 @@ const CONTENT = {
   },
 }
 export default function CtaButton() {
-  // Handler do botão principal (preserva o padrão original — window.open)
+  // Handler do botão principal — <a> nativo + UTM merge (funciona com ad blocker)
   const handleClick = (e) => {
-    e.preventDefault()
     try {
       const params = new URLSearchParams(window.location.search);
       const utmKeys = ['utm_source','utm_medium','utm_campaign','utm_content','utm_term','campaign','fbclid','gclid','cid','account_id'];
-      const url = new URL(CONTENT.href);
-      utmKeys.forEach(k => {
-        const v = params.get(k);
-        if (v) url.searchParams.set(k, v);
-      });
-      if (typeof window.dispararLead === 'function') window.dispararLead()
-      window.open(url.toString(), '_blank', 'noopener,noreferrer')
-    } catch {
-      if (typeof window.dispararLead === 'function') window.dispararLead()
-      window.open(CONTENT.href, '_blank', 'noopener,noreferrer')
-    }
+      if (e && e.currentTarget && e.currentTarget.href) {
+        const url = new URL(e.currentTarget.href);
+        utmKeys.forEach(k => {
+          const v = params.get(k);
+          if (v) url.searchParams.set(k, v);
+        });
+        e.currentTarget.href = url.toString();
+      }
+    } catch { /* ignore */ }
+    if (typeof window.dispararLead === 'function') window.dispararLead()
   }
 
   // Handler do botão secundário (padrão moderno — <a> nativo, funciona com ad blocker)
