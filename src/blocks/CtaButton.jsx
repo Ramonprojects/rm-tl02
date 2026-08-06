@@ -3,7 +3,7 @@
 // ============================================================================
 const CONTENT = {
   label: 'Quero meu acesso',
-  href: 'https://track.grupojc.cc/track/b215d5e4-a406-450d-bc5f-f9687470105e/redirect', // TROQUE pelo link do grupo (WhatsApp/Telegram)
+  href: 'https://track.grupojc.cc/track/34c58208-a263-4454-bbc4-6b736e47d42b/redirect', // TROQUE pelo link do grupo (WhatsApp/Telegram)
   // Botão secundário — fallback pra quem não tem Telegram (vai pro WhatsApp)
   secondary: {
     label: 'Clique aqui se você não tiver Telegram',
