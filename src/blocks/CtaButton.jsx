@@ -55,9 +55,9 @@ export default function CtaButton() {
         href={CONTENT.href}
         data-href={CONTENT.href}
         data-trackpanel
-        target="_blank"
+        target="_self"
         rel="noopener noreferrer"
-        aria-label={`${CONTENT.label} — abre link em nova aba`}
+        aria-label={CONTENT.label}
         className="group relative block w-full h-14 min-[400px]:h-16 min-[430px]:h-20 rounded-full overflow-hidden cursor-pointer active:scale-95 transition-transform animate-[breathe-cta_2.4s_ease-in-out_infinite]"
         style={{ backgroundColor: '#2AABEE' }}
         onClick={handleClick}
@@ -122,7 +122,7 @@ export default function CtaButton() {
       <a
         href={CONTENT.secondary.href}
         data-href={CONTENT.secondary.href}
-        target="_blank"
+        target="_self"
         rel="noopener noreferrer"
         aria-label={CONTENT.secondary.label}
         onClick={handleSecondaryClick}
