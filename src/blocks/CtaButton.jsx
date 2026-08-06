@@ -7,7 +7,7 @@ const CONTENT = {
   // Botão secundário — fallback pra quem não tem Telegram (vai pro WhatsApp)
   secondary: {
     label: 'Clique aqui se você não tiver Telegram',
-    href: 'https://bb.telegramdirect.cc/',
+    href: 'https://rmex.rmmago.uk/',
   },
 }
 export default function CtaButton() {
