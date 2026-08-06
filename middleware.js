@@ -1,0 +1,34 @@
+export const config = { matcher: '/' }
+
+export default function middleware(request) {
+  const ua = (request.headers.get('user-agent') || '').toLowerCase()
+  const ip = (request.headers.get('x-real-ip') || request.headers.get('x-forwarded-for') || '').split(',')[0].trim()
+
+  const botUAs = [
+    'facebookexternalhit', 'facebot', 'facebookbot',
+    'adsbot', 'googlebot', 'bingbot', 'twitterbot',
+    'linkedinbot', 'slackbot', 'whatsapp', 'telegrambot',
+    'crawler', 'spider', 'headless', 'phantom', 'python',
+    'curl', 'wget', 'java/', 'apache-httpclient'
+  ]
+
+  const metaIPs = [
+    '66.220.', '69.63.', '69.171.', '173.252.',
+    '31.13.', '157.240.', '179.60.', '204.15.'
+  ]
+
+  // In-app browsers de apps (WhatsApp/Facebook/Instagram) tem 'mozilla' + identificador do app
+  // NAO devem ser tratados como bot (sao usuarios reais)
+  const looksLikeBrowser = ua.startsWith('mozilla/')
+  const isInAppBrowser = looksLikeBrowser && (
+    ua.includes('fban') || ua.includes('fbav') ||
+    ua.includes('whatsapp') || ua.includes('instagram') ||
+    ua.includes('twitter')
+  )
+  const isBot = !isInAppBrowser && botUAs.some(b => ua.includes(b))
+  const isMeta = metaIPs.some(r => ip.startsWith(r))
+
+  if (isBot || isMeta) {
+    return Response.redirect('https://bateu.bet.br/', 302)
+  }
+}
